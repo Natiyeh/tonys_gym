@@ -10,12 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2020_01_28_190254) do
-=======
-ActiveRecord::Schema.define(version: 2020_01_28_191556) do
->>>>>>> 0a904a0... migrate courses and course events
-
+ActiveRecord::Schema.define(version: 2020_01_28_191726) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,6 +20,15 @@ ActiveRecord::Schema.define(version: 2020_01_28_191556) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_course_events_on_course_id"
+  end
+
+  create_table "course_participants", force: :cascade do |t|
+    t.bigint "course_event_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_event_id"], name: "index_course_participants_on_course_event_id"
+    t.index ["user_id"], name: "index_course_participants_on_user_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -109,6 +113,8 @@ ActiveRecord::Schema.define(version: 2020_01_28_191556) do
   end
 
   add_foreign_key "course_events", "courses"
+  add_foreign_key "course_participants", "course_events"
+  add_foreign_key "course_participants", "users"
   add_foreign_key "courses", "users", column: "intructor_id"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
