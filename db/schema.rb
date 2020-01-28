@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_28_190254) do
-
+ActiveRecord::Schema.define(version: 2020_01_28_191726) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "course_events", force: :cascade do |t|
+    t.bigint "course_id"
+    t.datetime "scheduled_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_course_events_on_course_id"
+  end
+
+  create_table "course_participants", force: :cascade do |t|
+    t.bigint "course_event_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_event_id"], name: "index_course_participants_on_course_event_id"
+    t.index ["user_id"], name: "index_course_participants_on_user_id"
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.bigint "intructor_id"
+    t.string "name"
+    t.integer "frequency"
+    t.integer "day_of_week"
+    t.integer "time_of_day"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["intructor_id"], name: "index_courses_on_intructor_id"
+  end
 
   create_table "order_items", force: :cascade do |t|
     t.bigint "order_id"
@@ -49,6 +76,23 @@ ActiveRecord::Schema.define(version: 2020_01_28_190254) do
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_roles_on_user_id"
   end
+  
+  create_table "profiles", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "date_of_birth"
+    t.string "profile_url"
+    t.string "gender"
+    t.string "street_address"
+    t.string "state"
+    t.string "country_code"
+    t.string "postal_code"
+    t.string "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
 
   create_table "user_memberships", force: :cascade do |t|
     t.datetime "start_date"
@@ -68,9 +112,14 @@ ActiveRecord::Schema.define(version: 2020_01_28_190254) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "course_events", "courses"
+  add_foreign_key "course_participants", "course_events"
+  add_foreign_key "course_participants", "users"
+  add_foreign_key "courses", "users", column: "intructor_id"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
   add_foreign_key "roles", "users"
+  add_foreign_key "profiles", "users"
   add_foreign_key "user_memberships", "orders"
   add_foreign_key "user_memberships", "users"
 end
