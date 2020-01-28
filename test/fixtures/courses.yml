@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  intructor: one
+  name: MyString
+  frequency: 1
+  day_of_week: 1
+  time_of_day: 1
+
+two:
+  intructor: two
+  name: MyString
+  frequency: 1
+  day_of_week: 1
+  time_of_day: 1
