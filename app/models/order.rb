@@ -4,6 +4,5 @@ class Order < ApplicationRecord
 
   has_one :user_id
 
-  validates :status, presence: true
-  validates :created_at, presence: true
+  validates :status, :created_at, presence: true
 end
