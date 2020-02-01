@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_28_191726) do
+ActiveRecord::Schema.define(version: 2020_02_01_175823) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -69,14 +70,6 @@ ActiveRecord::Schema.define(version: 2020_01_28_191726) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "roles", force: :cascade do |t|
-    t.string "name"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_roles_on_user_id"
-  end
-  
   create_table "profiles", force: :cascade do |t|
     t.bigint "user_id"
     t.string "first_name"
@@ -94,6 +87,14 @@ ActiveRecord::Schema.define(version: 2020_01_28_191726) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_roles_on_user_id"
+  end
+
   create_table "user_memberships", force: :cascade do |t|
     t.datetime "start_date"
     t.datetime "end_date"
@@ -106,10 +107,15 @@ ActiveRecord::Schema.define(version: 2020_01_28_191726) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email"
-    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "course_events", "courses"
@@ -118,8 +124,8 @@ ActiveRecord::Schema.define(version: 2020_01_28_191726) do
   add_foreign_key "courses", "users", column: "intructor_id"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
-  add_foreign_key "roles", "users"
   add_foreign_key "profiles", "users"
+  add_foreign_key "roles", "users"
   add_foreign_key "user_memberships", "orders"
   add_foreign_key "user_memberships", "users"
 end
