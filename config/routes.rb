@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :course_participants
   resources :courses
   resources :order_items
+  resources :profiles
 
 end
