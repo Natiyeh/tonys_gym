@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :orders
   resources :roles
   resources :users
+  resources :user_memberships
 end
