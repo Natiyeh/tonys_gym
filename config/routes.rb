@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :course_events
   resources :course_participants
   resources :courses
+  resources :order_items
 
 end
