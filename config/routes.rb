@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :profiles
   resources :products
   resources :orders
+  resources :roles
 end
