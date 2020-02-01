@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :roles
   resources :users
   resources :user_memberships
+  root to: 'pages#home'
 end
