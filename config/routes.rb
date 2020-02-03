@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'pages/home'
+  get 'pages/contact'
+  get 'pages/about'
   devise_for :users
   resources :course_events
   resources :course_participants
