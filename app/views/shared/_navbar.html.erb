@@ -1,10 +1,10 @@
 <div class="navbar">
-  <%= link_to pages_home_path, class:"navbar-home-button" do %>
-    <%= image_tag "" %>
+  <%= link_to "Home", pages_home_path, class:"navbar-home-button" %>
+
+  <% if user_signed_in? %>
+    <%= link_to "Profile", profile_path(current_user), class: "navbar-profile-link" %>
+    <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "navbar-signout-link" %>
+  <% else %>
+    <%= link_to "Sign In", new_user_session_path, class: "navbar-signin-link" %>
   <% end %>
-
-  <%= link_to "profile", class: "navbar-profile-link" %>
-
-  <%= link_to "Sign In", new_user_session_path, class: "navbar-signin-link" %>
-  <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "navbar-signout-link" %>
 </div>
