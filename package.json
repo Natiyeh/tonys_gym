@@ -2,7 +2,10 @@
   "name": "tonys_gym",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@fortawesome/fontawesome-free": "^5.12.0",
+=======
+>>>>>>> 0166591... added bootstrap
     "@rails/webpacker": "4.2.2",
     "bootstrap": "^4.4.1"
   },
