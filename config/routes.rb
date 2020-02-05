@@ -7,11 +7,12 @@ Rails.application.routes.draw do
   resources :course_participants
   resources :courses
   resources :order_items
-  resources :profiles
   resources :products
   resources :orders
   resources :roles
-  resources :users
+  resources :users do
+    resources :profiles
+  end
   resources :user_memberships
   root to: 'pages#home'
 end
