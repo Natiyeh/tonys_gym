@@ -13,10 +13,12 @@
 
 .navbar-nav.mr-auto {
   margin: 0 auto!important;
+  flex-direction: row;
 }
 
 .navbar-nav.ml-auto.nav-flex-icons {
   margin-left: 0px !important;
+  flex-direction: row;
 }
 
 .nav-link {
@@ -48,3 +50,18 @@ i.fa {
 // .collapse.navbar-collapse {
 //   justify-content: center;
 // }
+
+@media (min-width: 400px) {
+  .navbar-expand-lg {
+    .navbar-collapse {
+      display: -ms-flexbox !important;
+      display: flex !important;
+      -ms-flex-preferred-size: auto !important;
+      flex-basis: auto !important;
+    }
+  }
+
+  li.nav-item {
+    padding: 0px 15px;
+  }
+}
