@@ -1,0 +1,36 @@
+.navbar-brand {
+  color: black !important;
+
+  img {
+    width: 45px;
+  }
+}
+
+.navbar-nav {
+  align-items: initial;
+}
+
+.nav-link {
+  color: black !important;
+}
+
+.mb-1,
+.my-1 {
+  margin-bottom: .25rem !important;
+  margin-top: .25rem !important;
+}
+
+.navbar-dropdown {
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.dropdown-toggle::after {
+  content: none!important;
+}
+
+.fa {
+  font-size: 35px;
+}
