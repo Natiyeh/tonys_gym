@@ -1,5 +1,6 @@
 .navbar-brand {
   color: black !important;
+  margin-right: 0;
 
   img {
     width: 45px;
@@ -8,6 +9,14 @@
 
 .navbar-nav {
   align-items: initial;
+}
+
+.navbar-nav.mr-auto {
+  margin: 0 auto!important;
+}
+
+.navbar-nav.ml-auto.nav-flex-icons {
+  margin-left: 0px !important;
 }
 
 .nav-link {
@@ -31,6 +40,11 @@
   content: none!important;
 }
 
-.fa {
-  font-size: 35px;
+i.fa {
+  font-size: 30px;
+  padding-left: 30px;
 }
+
+// .collapse.navbar-collapse {
+//   justify-content: center;
+// }
