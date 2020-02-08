@@ -1,2 +1,8 @@
-<h1>this is the profile page</h1>
-<h2><%= @user.email %></h2>
+<div>
+  <%= @user.email %>
+</div>
+<div>
+  <p>name:</p>
+  <%= @profile.first_name %>
+</div>
+<%= link_to 'Edit Profile', edit_user_profile_path(@profile), class:'btn btn-warning m-1' %>
