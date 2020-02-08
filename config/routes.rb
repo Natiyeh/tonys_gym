@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'pages/home'
   get 'pages/contact'
   get 'pages/about'
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   resources :course_events
   resources :course_participants
   resources :courses
