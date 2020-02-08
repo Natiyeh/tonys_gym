@@ -1,10 +1,48 @@
-<div class="navbar">
-  <%= link_to "Home", pages_home_path, class:"navbar-home-button" %>
-
-  <% if user_signed_in? %>
-    <%= link_to "Profile", profile_path(current_user), class: "navbar-profile-link" %>
-    <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "navbar-signout-link" %>
-  <% else %>
-    <%= link_to "Sign In", new_user_session_path, class: "navbar-signin-link" %>
-  <% end %>
-</div>
+<!--Navbar -->
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark orange lighten-1">
+  <a class="navbar-brand" href="/pages/home">
+    <img src="https://tonys-gym.square.site/uploads/b/105d58e0-4a6b-11e9-a2ed-91e638bc6c90/8969B1FE-160D-4A18-BAD5-8488EB486B77.jpeg" alt="Tonys Gym">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+    aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Merchandise
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Classes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Memberships</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      <% if user_signed_in? %>
+        <div class="dropdown">
+          <button class="navbar-dropdown" data-toggle="dropdown">
+            <img src="" alt="avatar">
+          </button>
+          <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="dropdownMenu2">
+            <%= link_to "Profile", '/', class: "dropdown-item" %>
+            <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, class: "dropdown-item" %>
+          </div>
+        </div>
+        <div class="cart">
+          <a class="btn btn-default btn-sm">
+            <i class="fa">&#xf07a;</i>
+          </a>
+        </div>
+      <% else %>
+        <div class="navbar-signin-link">
+          <%= link_to "Sign In", new_user_session_path, class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+<!--/.Navbar -->
