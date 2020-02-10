@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Product < ApplicationRecord
   validates :name, :merchant_id, :price, :product_status, presence: :true
 
