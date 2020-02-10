@@ -2,12 +2,11 @@
 
 <h3 class="h3">Merchandise</h3>
 
-<%= count = 0 %>
-
+<% count = 0 %>
 <% while count < @products.size do %>
-  <% 4.times do %>
   <div class="container">
       <div class="row">
+        <% 4.times do %>
         <% if @products[count] %>
 
           <div class="col-md-3 col-sm-6">
@@ -22,19 +21,14 @@
                           <li><a href="" class="fa fa-shopping-bag"></a></li>
                           <li><a href="" class="fa fa-shopping-cart"></a></li>
                       </ul>
-                      <span class="product-new-label">New</span>
+                      <% if count % 3 == 0 %>
+                        <span class="product-new-label">New</span>
+                      <% end %>
                   </div>
                   <div class="product-content">
-                      <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                      <ul class="rating">
-                          <li class="fa fa-star"></li>
-                          <li class="fa fa-star"></li>
-                          <li class="fa fa-star"></li>
-                          <li class="fa fa-star"></li>
-                          <li class="fa fa-star"></li>
-                      </ul>
-                      <div class="price">$15.00
-                          <span>$20.00</span>
+                      <h3 class="title"><a href="#"><%= @products[count].name %></a></h3>
+                      <div class="price"><%= '%.2f' % @products[count].price %>
+                          <span><%= '%.2f' % (@products[count].price * 1.8) %></span>
                       </div>
                   </div>
               </div>
@@ -43,7 +37,7 @@
           <% count += 1 %>
 
         <% end %>
+        <% end %>
       </div>
     </div>
-    <% end %>
 <% end %>
