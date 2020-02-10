@@ -32,7 +32,8 @@ class ProfilesController < ApplicationController
       :date_of_birth, :profile_url,
       :gender, :street_address,
       :state, :country_code,
-      :postal_code, :phone_number
+      :postal_code, :phone_number,
+      :city
     )
   end
 
