@@ -6,3 +6,30 @@
   <%= @profile.first_name %>
 </div>
 <%= link_to 'Edit Profile', edit_user_profile_path(@profile), class:'btn btn-warning m-1' %>
+
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <!-- profile URL is profile picture -->
+  <div class="card-body">
+    <h5 class="card-title"><%= @profile.first_name.capitalize %> <%= @profile.last_name.capitalize %></h5>
+    <p class="card-text"><%= @profile.phone_number %></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= @user.email %></li>
+    <li class="list-group-item"><%= @profile.date_of_birth %></li>
+    <li class="list-group-item"><%= @profile.gender %></li>
+    <li class="list-group-item"><%= @profile.street_address %><br><%= @profile.state %></li>
+  </ul>
+  <div class="card-body">
+    <%= link_to 'Edit Profile', edit_user_profile_path(@profile), class:'btn btn-warning m-1' %>
+    <%= link_to 'Delete Profile', edit_user_profile_path(@profile), class:'btn btn-danger m-1' %>
+  </div>
+</div>
+
+
+
+  :, :,
+      :, :,
+      :, :street_address,
+      :state, :country_code,
+      :postal_code
