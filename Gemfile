@@ -8,6 +8,7 @@ ruby '2.5.3'
 gem 'simple_form'
 
 gem 'font-awesome-rails'
+gem 'font-awesome-sass'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'

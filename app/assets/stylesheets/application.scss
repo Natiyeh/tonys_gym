@@ -13,7 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ /*
+ *= require font-awesome
+ */
 
- @import 'reset.scss';
- @import '_navbar.scss';
- @import '_avatar.scss';
+@import 'font-awesome-sprockets';
+@import 'reset.scss';
+@import '_navbar.scss';
+@import '_avatar.scss';
+@import 'font-awesome';
