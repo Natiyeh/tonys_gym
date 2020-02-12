@@ -2,7 +2,6 @@
   <div id="content" class="clearfix">
     <div id="userphoto"><%= image_tag ("nasser1.jpg"), class: 'avatar-large' %></div>
     <h1><%= @profile.first_name.capitalize %> <%= @profile.last_name.capitalize %></h1>
-
     <nav id="profiletabs">
       <ul class="clearfix">
         <li><a href="#bio" class="sel">Membership</a></li>
@@ -11,51 +10,38 @@
         <li><a href="#settings">User Info</a></li>
       </ul>
     </nav>
-
     <section id="bio">
       <p>Various content snippets courtesy of <a href="http://bluthipsum.com/">Bluth Ipsum</a>.</p>
-
       <p>Can't a guy call his mother pretty without it seeming strange? Amen. I think that's one of Mom's little fibs, you know, like I'll sacrifice anything for my children.</p>
-
       <p>She's always got to wedge herself in the middle of us so that she can control everything. Yeah. Mom's awesome. I run a pretty tight ship around here. With a pool table.</p>
     </section>
-
     <section id="activity" class="hidden">
       <p>Most recent actions:</p>
-
       <p class="activity">@10:15PM - Submitted a news article</p>
-
       <p class="activity">@9:50PM - Submitted a news article</p>
-
       <p class="activity">@8:15PM - Posted a comment</p>
-
       <p class="activity">@4:30PM - Added <strong>someusername</strong> as a friend</p>
-
       <p class="activity">@12:30PM - Submitted a news article</p>
     </section>
-
     <section id="friends" class="hidden">
       <p>Friends list:</p>
-
       <ul id="friendslist" class="clearfix">
         <li><a href="#"><img src="images/avatar.png" width="22" height="22"> Username</a></li>
         <li><a href="#"><img src="images/avatar.png" width="22" height="22"> SomeGuy123</a></li>
         <li><a href="#"><img src="images/avatar.png" width="22" height="22"> PurpleGiraffe</a></li>
       </ul>
     </section>
-
     <section id="settings" class="hidden">
-      <p>Edit your user settings:</p>
+      <p class="setting"><span>E-mail Address</span><%= @user.email %></p>
 
-      <p class="setting"><span>E-mail Address <img src="images/edit.png" alt="*Edit*"></span> lolno@gmail.com</p>
+      <p class="setting"><span>Phone Number</span><%= @profile.phone_number %></p>
 
-      <p class="setting"><span>Language <img src="images/edit.png" alt="*Edit*"></span> English(US)</p>
+      <p class="setting"><span>Birthday</span><%= @profile.date_of_birth.strftime("%d of %B, %Y") %></p>
 
-      <p class="setting"><span>Profile Status <img src="images/edit.png" alt="*Edit*"></span> Public</p>
+      <p class="setting"><span>Gender</span><%= @profile.gender %></p>
 
-      <p class="setting"><span>Update Frequency <img src="images/edit.png" alt="*Edit*"></span> Weekly</p>
-
-      <p class="setting"><span>Connected Accounts <img src="images/edit.png" alt="*Edit*"></span> None</p>
+      <p class="setting"><span>Address</span><%= @profile.street_address %>, <%= @profile.city %>, <%= @profile.state %> <%= @profile.postal_code %></p>
+      <%= link_to 'Edit Profile', edit_user_profile_path(@profile), class:'btn btn-warning m-1' %>
     </section>
   </div><!-- @end #content -->
 </div><!-- @end #w -->
@@ -76,34 +62,3 @@ $(function(){
   });
 });
 </script>
-
-
-<!-- end of page -->
-
-
-
-<div class="container d-flex">
-  <div class="card" style="width: 18rem;text-align: center">
-    <div style="padding: 28px;">
-      <%= image_tag ("nasser1.jpg"), class: 'avatar-large' %>
-    </div>
-    <!-- profile URL is profile picture -->
-    <div class="card-body">
-      <h5 class="card-title"><%= @profile.first_name.capitalize %> <%= @profile.last_name.capitalize %></h5>
-      <p class="card-text"><%= @profile.phone_number %></p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><%= @user.email %></li>
-      <li class="list-group-item">
-        <i class="fab fa-accessible-icon"></i>
-      </li>
-      <li class="list-group-item"><%= @profile.date_of_birth.strftime("%d of %B, %Y") %></li>
-      <li class="list-group-item"><i class="fas fa-male"></i><i class="fas fa-female"></i><%= @profile.gender %></li>
-      <li class="list-group-item"><%= @profile.street_address %><br><%= @profile.city %>, <%= @profile.state %><br><%= @profile.postal_code %></li>
-    </ul>
-    <div class="card-body">
-      <%= link_to 'Edit Profile', edit_user_profile_path(@profile), class:'btn btn-warning m-1' %>
-      <%= link_to 'Change Password', edit_user_registration_path(current_user), class:'btn btn-warning m-1' %>
-    </div>
-  </div>
-</div>
