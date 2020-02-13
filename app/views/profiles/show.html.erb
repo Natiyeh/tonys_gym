@@ -1,8 +1,60 @@
-<div>
-  <%= @user.email %>
-</div>
-<div>
-  <p>name:</p>
-  <%= @profile.first_name %>
-</div>
-<%= link_to 'Edit Profile', edit_user_profile_path(@profile), class:'btn btn-warning m-1' %>
+<div id="w" style="margin-top: 65px">
+  <div id="content" class="clearfix">
+    <div id="userphoto"><%= image_tag ("nasser1.jpg"), class: 'avatar-large' %></div>
+    <h1><%= @profile.first_name.capitalize %> <%= @profile.last_name.capitalize %></h1>
+    <nav id="profiletabs">
+      <ul class="clearfix">
+        <li><a href="#bio" class="sel">Membership</a></li>
+        <li><a href="#activity">Classes</a></li>
+        <li><a href="#friends">Wish List</a></li>
+        <li><a href="#settings">User Info</a></li>
+      </ul>
+    </nav>
+    <section id="bio">
+      <p>this is where you will see your membership status:</p>
+      <p>Gold Member</p>
+    </section>
+    <section id="activity" class="hidden">
+      <p>this is going to be your upcoming classes:</p>
+      <p class="activity">@10:15PM - Kick Boxing</p>
+      <p class="activity">@9:50PM - Boot Camp</p>
+    </section>
+    <section id="friends" class="hidden">
+      <p>Merchandise Wishlist:</p>
+      <ul id="friendslist" class="clearfix">
+        <li><a href="#"><img src="images/avatar.png" width="22" height="22">T-Shirt</a></li>
+        <li><a href="#"><img src="images/avatar.png" width="22" height="22">Pants</a></li>
+        <li><a href="#"><img src="images/avatar.png" width="22" height="22">Shorts</a></li>
+      </ul>
+    </section>
+    <section id="settings" class="hidden">
+      <p class="setting"><span>E-mail Address</span><%= @user.email %></p>
+
+      <p class="setting"><span>Phone Number</span><%= @profile.phone_number %></p>
+
+      <p class="setting"><span>Birthday</span><%= @profile.date_of_birth.strftime("%d of %B, %Y") %></p>
+
+      <p class="setting"><span>Gender</span><%= @profile.gender %></p>
+
+      <p class="setting"><span>Address</span><%= @profile.street_address %>, <%= @profile.city %>, <%= @profile.state %> <%= @profile.postal_code %></p>
+      <%= link_to 'Edit Profile', edit_user_profile_path(@profile), class:'btn btn-warning m-1' %>
+    </section>
+  </div><!-- @end #content -->
+</div><!-- @end #w -->
+<script type="text/javascript">
+$(function(){
+  $('#profiletabs ul li a').on('click', function(e){
+    e.preventDefault();
+    var newcontent = $(this).attr('href');
+
+    $('#profiletabs ul li a').removeClass('sel');
+    $(this).addClass('sel');
+
+    $('#content section').each(function(){
+      if(!$(this).hasClass('hidden')) { $(this).addClass('hidden'); }
+    });
+
+    $(newcontent).removeClass('hidden');
+  });
+});
+</script>
