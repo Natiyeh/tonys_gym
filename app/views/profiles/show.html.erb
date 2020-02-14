@@ -1,6 +1,6 @@
 <div id="w" style="margin-top: 65px">
   <div id="content" class="clearfix">
-    <div id="userphoto"><%= image_tag ("nasser1.jpg"), class: 'avatar-large' %></div>
+    <div id="userphoto"><%= cl_image_tag(@profile.profile_url.key,  width: 150, height: 150, crop: :thumb, gravity: :face, class: 'avatar-large') %></div>
     <h1><%= @profile.first_name.capitalize %> <%= @profile.last_name.capitalize %></h1>
     <nav id="profiletabs">
       <ul class="clearfix">
