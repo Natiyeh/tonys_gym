@@ -7,7 +7,10 @@ ruby '2.5.3'
 
 gem 'simple_form'
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 gem 'font-awesome-rails'
+
 gem 'font-awesome-sass'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
