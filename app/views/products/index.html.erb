@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+<h3 class="h3">Merchandise</h3>
+
+<% count = 0 %>
+<% while count < @products.size do %>
+  <div class="container">
+      <div class="row">
+        <% 4.times do %>
+        <% if @products[count] %>
+
+          <div class="col-md-3 col-sm-6">
+              <div class="product-grid7">
+                  <div class="product-image7">
+                      <a href=<%= "/products/#{@products[count].id}" %>> <!-- add link to product show -->
+                          <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-1.jpg">
+                          <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-2.jpg">
+                      </a>
+                      <ul class="social">
+                          <li><a href="" class="fa fa-shopping-bag"></a></li> <!-- add shopping bag and link to the shopping bag -->
+                          <li><a href="" class="fa fa-shopping-cart"></a></li> <!-- add shopping cart and link to the shopping cart -->
+                      </ul>
+                      <% if @products[count].created_at > 1.week.ago %>
+                        <span class="product-new-label">New</span>
+                      <% end %>
+                  </div>
+                  <div class="product-content">
+                      <h3 class="title"><a href=<%= "/products/#{@products[count].id}" %>><%= @products[count].name %></a></h3> <!-- add link to product show -->
+                      <div class="price"><%= '%.2f' % @products[count].price %>
+                          <span><%= '%.2f' % (@products[count].price * 1.8) %></span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <% count += 1 %>
+
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+<% end %>

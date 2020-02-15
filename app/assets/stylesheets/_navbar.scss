@@ -1,3 +1,45 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 12px;
+}
+
+.navbar-logo {
+
+  img {
+    height: 45px;
+  }
+}
+
+.navbar-links {
+  display: flex;
+  margin-bottom: 0px;
+
+  li > a {
+    color: black;
+    padding: 0px 20px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+  }
+}
+
+.navbar-auth-links {
+  display: flex;
+  margin-bottom: 0px;
+
+  .cart {
+    padding: 5px 0px;
+
+    a > i {
+      font-size: 30px;
+      padding-left: 30px;
+      color: black;
+    }
+  }
+}
+
 .navbar-brand {
   color: black !important;
   margin-right: 0;
@@ -7,58 +49,22 @@
   }
 }
 
-.navbar-nav {
-  align-items: initial;
-}
+.dropdown {
 
-.navbar-nav.mr-auto {
-  margin: 0 auto!important;
-  flex-direction: row;
-}
-
-.navbar-nav.ml-auto.nav-flex-icons {
-  margin-left: 0px !important;
-  flex-direction: row;
-}
-
-.nav-link {
-  color: black !important;
-}
-
-.mb-1,
-.my-1 {
-  margin-bottom: .25rem !important;
-  margin-top: .25rem !important;
-}
-
-.navbar-dropdown {
-  vertical-align: middle;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.dropdown-toggle::after {
-  content: none!important;
-}
-
-i.fa {
-  font-size: 30px;
-  padding-left: 30px;
-}
-
-@media (min-width: 400px) {
-  .navbar-expand-lg {
-    .navbar-collapse {
-      display: -ms-flexbox !important;
-      display: flex !important;
-      -ms-flex-preferred-size: auto !important;
-      flex-basis: auto !important;
-    }
+  .active {
+    display: block;
   }
 
-  li.nav-item {
-    padding: 0px 15px;
+  button {
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .dropdown-menu {
+    left: -120px;
   }
 }
 
