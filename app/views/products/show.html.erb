@@ -1,77 +1,32 @@
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+<div class="container">
+  <div class="row">
 
-<div class="container-fluid">
-    <div class="content-wrapper">	
-		<div class="item-container">	
-			<div class="container">	
-				<div class="col-md-12">
-					<div class="product col-md-3 service-image-left">
+    <div class="col-xs-4 item-photo">
+        <img style="max-width:100%;" src="https://ak1.ostkcdn.com/images/products/8818677/Samsung-Galaxy-S4-I337-16GB-AT-T-Unlocked-GSM-Android-Cell-Phone-85e3430e-6981-4252-a984-245862302c78_600.jpg" />
+    </div>
 
-						<center>
-							<img id="item-display" src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt="">
-						</center>
-					</div>
-					
-					<div class="container service1-items col-sm-2 col-md-2 pull-left">
-            <a id="item-1" class="service1-item">
-              <img src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt="">
-            </a>
-            <a id="item-2" class="service1-item">
-              <img src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt="">
-            </a>
-            <a id="item-3" class="service1-item">
-              <img src="http://www.corsair.com/Media/catalog/product/g/s/gs600_psu_sideview_blue_2.png" alt="">
-            </a>
-					</div>
-				</div>
-					
-				<div class="col-md-7">
-					<div class="product-title"><%= @product.name %></div>
-					<div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>
-					<hr>
-					<div class="product-price"><%= '%.2f' % @product.price %></div>
-					<div class="product-stock"><%= @product.product_status.split("_").join(" ").titleize %></div>
-					<hr>
-					<div class="btn-group cart">
-						<button type="button" class="btn btn-success">
-							Add to cart 
-						</button>
-					</div>
-				</div>
-			</div> 
-		</div>
-		<div class="container-fluid">		
-			<div class="col-md-12 product-info">
-					<ul id="myTab" class="nav nav-tabs nav_tabs">
-						
-						<li class="active"><a href="#service-one" data-toggle="tab">DESCRIPTION</a></li>
-						<li><a href="#service-three" data-toggle="tab">REVIEWS</a></li>
-						
-					</ul>
-				<div id="myTabContent" class="tab-content">
-						<div class="tab-pane fade in active" id="service-one">
-						 
-							<section class="container product-info">
-								<%= @product.description %>
-							</section>
-										  
-						</div>
-					<div class="tab-pane fade" id="service-two">
-						
-						<section class="container">
-								
-						</section>
-						
-					</div>
-					<div class="tab-pane fade" id="service-three">
-												
-					</div>
-				</div>
-				<hr>
-			</div>
-		</div>
-	</div>
+    <div class="col-xs-5" style="border:0px solid gray">
+        <h3><%= @product.name.capitalize %></h3>    
+        <h3 style="margin-top:0px;">$<%= '%.2f' % @product.price %></h3>
+        <div class="section" style="padding-bottom:20px;">
+          <h6 class="title-attr"><small>Quantity</small></h6>
+          <div>
+              <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
+              <div class="btn-plus"><span class="glyphicon glyphicon-plus"></span></div>
+              <input value="1" />
+          </div>
+        </div>
+        <div class="section" style="padding-bottom:20px;">
+            <button class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to cart</button>
+        </div>
+    </div>
+
+    <div class="col-xs-9">
+      Description
+      <div style="width:100%;border-top:1px solid silver">
+        <%= @product.description %>
+      </div>
+    </div>
+
+  </div>
 </div>

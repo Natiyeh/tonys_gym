@@ -12,13 +12,16 @@
   }
 }
 
-.navbar-nav-links {
+.navbar-links {
   display: flex;
   margin-bottom: 0px;
 
   li > a {
     color: black;
     padding: 0px 20px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
   }
 }
 
@@ -46,16 +49,6 @@
   }
 }
 
-<<<<<<< HEAD
-@media (min-width: 400px) {
-  .navbar-expand-lg {
-    .navbar-collapse {
-      display: -ms-flexbox !important;
-      display: flex !important;
-      -ms-flex-preferred-size: auto !important;
-      flex-basis: auto !important;
-    }
-=======
 .dropdown {
 
   .active {
@@ -68,7 +61,6 @@
     height: 40px;
     border-radius: 50%;
     overflow: hidden;
->>>>>>> c8dced3... restyle navbar
   }
 
   .dropdown-menu {
