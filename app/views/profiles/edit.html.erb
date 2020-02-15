@@ -1,8 +1,8 @@
 <%= simple_form_for [@user, @profile] do |f| %>
+  <%= f.input :profile_url, as: :file %>
   <%= f.input :first_name %>
   <%= f.input :last_name %>
   <%= f.input :date_of_birth %>
-  <%= f.input :profile_url %>
   <%= f.input :gender %>
   <%= f.input :street_address %>
   <%= f.input :state %>

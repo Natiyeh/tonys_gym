@@ -1,12 +1,12 @@
 <div id="w" style="margin-top: 65px">
   <div id="content" class="clearfix">
-    <div id="userphoto"><%= image_tag ("nasser1.jpg"), class: 'avatar-large' %></div>
+    <div id="userphoto"><%= cl_image_tag(@profile.profile_url.key,  width: 150, height: 150, crop: :thumb, gravity: :face, class: 'avatar-large') %></div>
     <h1><%= @profile.first_name.capitalize %> <%= @profile.last_name.capitalize %></h1>
     <nav id="profiletabs">
       <ul class="clearfix">
         <li><a href="#bio" class="sel">Membership</a></li>
         <li><a href="#activity">Classes</a></li>
-        <li><a href="#friends">Wish List</a></li>
+        <li><a href="#friends">Merch</a></li>
         <li><a href="#settings">User Info</a></li>
       </ul>
     </nav>
@@ -20,7 +20,7 @@
       <p class="activity">@9:50PM - Boot Camp</p>
     </section>
     <section id="friends" class="hidden">
-      <p>Merchandise Wishlist:</p>
+      <p>Order History:</p>
       <ul id="friendslist" class="clearfix">
         <li><a href="#"><img src="images/avatar.png" width="22" height="22">T-Shirt</a></li>
         <li><a href="#"><img src="images/avatar.png" width="22" height="22">Pants</a></li>
