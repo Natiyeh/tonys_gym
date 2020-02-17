@@ -4,6 +4,7 @@
 class ProfilesController < ApplicationController
   before_action :set_user, only: %i[new create show edit]
   before_action :set_profile, only: %i[show edit update]
+
   def new
     @profile = Profile.new
   end
