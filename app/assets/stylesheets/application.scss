@@ -18,11 +18,12 @@
  */
 
 @import 'font-awesome-sprockets';
-@import 'reset.scss';
-@import '_navbar.scss';
-@import '_avatar.scss';
+@import 'reset';
+@import 'navbar.scss';
+@import 'avatar.scss';
 @import 'font-awesome';
 @import 'products/index.scss';
 @import "bootstrap";
 @import "bootstrap/scss/bootstrap";
 @import "profiles";
+@import "devise";
