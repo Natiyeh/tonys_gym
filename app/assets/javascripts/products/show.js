@@ -1,16 +1,16 @@
 $(document).ready(function () {
   //-- Click on detail
-  $("ul.menu-items > li").on("click", function () {
-    $("ul.menu-items > li").removeClass("active");
-    $(this).addClass("active");
-  })
+  // $("ul.menu-items > li").on("click", function () {
+  //   $("ul.menu-items > li").removeClass("active");
+  //   $(this).addClass("active");
+  // })
 
-  $(".attr,.attr2").on("click", function () {
-    var clase = $(this).attr("class");
+  // $(".attr,.attr2").on("click", function () {
+  //   var clase = $(this).attr("class");
 
-    $("." + clase).removeClass("active");
-    $(this).addClass("active");
-  })
+  //   $("." + clase).removeClass("active");
+  //   $(this).addClass("active");
+  // })
 
   //-- Click on QUANTITY
   $(".btn-minus").on("click", function () {
