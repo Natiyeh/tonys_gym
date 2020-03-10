@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2020_02_17_000339) do
-=======
 ActiveRecord::Schema.define(version: 2020_02_27_232317) do
->>>>>>> be6f671... add photo_url to products
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
