@@ -16,9 +16,10 @@
   <ul class="navbar-auth-links">
     <% if user_signed_in? %>
       <div class="dropdown">
-        <button onclick="document.getElementById('dropdown').classList.toggle('active')">
-          <img src="" alt="avatar">
-        </button>
+        <div onclick="document.getElementById('dropdown').classList.toggle('active')">
+          <!-- <img src="" alt="avatar"> -->
+          <%= cl_image_tag(current_user.profile.profile_url.key, class: 'avatar') %>
+        </div>
         <div  id="dropdown" class="dropdown-menu">
           <%= link_to "Profile", user_profile_path(current_user.id, current_user.profile.id), class: "dropdown-item" %>
           <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, class: "dropdown-item" %>
